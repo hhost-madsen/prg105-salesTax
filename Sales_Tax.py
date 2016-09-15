@@ -1,5 +1,11 @@
 price = 1
 total_price = 0
+
+def calculate_tax(amount):
+        tax_amount = amount * .06
+        tax_output = round(tax_amount, 2)
+        return tax_output
+
 print "Type the price of your purchase and press Enter to see the current total. When you finish, enter 0 to complete the purchase."
 
 while price != 0:
@@ -7,16 +13,14 @@ while price != 0:
     price = float(strPrice)
     total_price += price
 
-    print "Here is your current total: $" + str(total_price)
+print "Here is your current total: $" + str(total_price)
 
-tax = total_price * .06
-
-output_tax = round(tax, 2)
+output_tax = calculate_tax(total_price)
 
 print "Tax at 6%: $" + str(output_tax)
 
-total = total_price + tax
+amount = total_price + output_tax
 
-output = round(total,2)
+calculate_tax(amount)
 
-print "Your total with tax comes to, $" + str(output)
+print "Your total with tax comes to, $" + str(round(amount, 2))
